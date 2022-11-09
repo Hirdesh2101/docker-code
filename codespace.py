@@ -24,24 +24,20 @@ soup = BeautifulSoup(source, 'lxml')
 li = soup.find('div', {'class': 'satta-result'})
 li2 = soup.find('div', {'class': 'matka-card live-box'})
 children = li.findChildren('h4')
-children2 = li.findChildren('h5')
-children3 = li.findChildren('h6')
-children4 = li2.findChildren('h6')
-children5 = li2.findChildren('h5')
+children2 = li.findChildren('span')
+children3 = li.findChildren('p')
+children4 = li2.findChildren('span',{'class': 'gn'})
 temp_list = []
 temp_list2 = []
 temp_list3 = []
 temp_list4 = []
 temp_list5 = []
-temp_list6 = []
 for child in children:
 	temp_list.append(child.text)
 for child in children2:
 	temp_list2.append(child.text)
 for child in children4:
 	temp_list5.append(child.text)
-for child in children5:
-	temp_list6.append(child.text)
 for child in children3:
 	x = child.text.split(" ")
 	x1 = [x[0]+":00 "+x[1]]
